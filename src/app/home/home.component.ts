@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +9,16 @@ export class HomeComponent implements OnInit {
   homeTitle = "El titulo de la pagina home";
 
   @Input() ninja;
+  @Output() onYell = new EventEmitter();
+
 
   alertMe(val){
   	alert(val);
+  }
+
+  fireYellEvent(e){
+    this.onYell.emit(e);
+
   }
 
   constructor() { }
